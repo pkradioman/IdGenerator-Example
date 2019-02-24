@@ -25,8 +25,8 @@ namespace IdGen
         static List<long> CreateFromIdGen()
         {
             var gen = new IdGenerator(0);
-            var ids = from i in Enumerable.Range(1, 100)
-                      select gen.CreateId();
+            var ids = from i in gen.Take(100) //Enumerable.Range(1, 100)
+                      select i; //gen.CreateId();
             return ids.ToList();
         }
 
